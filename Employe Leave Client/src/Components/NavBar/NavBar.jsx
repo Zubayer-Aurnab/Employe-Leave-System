@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../../assets/logo/logo.png'
 import './Nav.css'
+import Button from '../Button/Button';
 const NavBar = () => {
     const navClass = 'font-Roboto text-lg font-medium hover-effect'
     const [open, setOpen] = useState(false)
@@ -19,7 +20,7 @@ const NavBar = () => {
                         <div className={navClass}>About Us</div>
                         <div className={navClass}>Features</div>
                         <div className={navClass}>Contact</div>
-                        <button className='text-lg font-medium px-5 py-1 nav-btn'>Log In</button>
+                        <Button title={"Log In"} />
                     </div>
                     {/* Hamburger Menu */}
                     <div className='flex lg:hidden'>
