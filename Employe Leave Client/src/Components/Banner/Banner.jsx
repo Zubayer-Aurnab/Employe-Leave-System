@@ -6,10 +6,10 @@ const Banner = () => {
         <>
             <div className="bg-blue-light">
                 <div className="px-4 lg:px-0 lg:w-4/5 mx-auto flex items-center flex-col lg:flex-row ">
-                    <div className="pt-8 lg:pt-14 pb-36 flex-1 lg:pl-24">
-                        <h1 className="text-4xl lg:text-6xl tracking-wide leading-[55px] lg:leading-[75px] font-Roboto font-bold">The Leave <br className='hidden lg:flex'  /> Management <br className='hidden lg:flex' /> System for  a  <br className='hidden lg:flex' /> Modern <br className='hidden lg:flex' /> Workplace</h1>
+                    <div className="pt-8 lg:pt-10 pb-36 flex-1 lg:pl-24">
+                        <h1 className="text-4xl lg:text-6xl tracking-wide leading-[55px] lg:leading-[75px] font-Roboto font-bold">The Leave <br className='hidden lg:flex' /> Management <br className='hidden lg:flex' /> System for  a  <br className='hidden lg:flex' /> Modern <br className='hidden lg:flex' /> Workplace</h1>
                         <div className="h-[2px] bg-blue-dark w-28 my-10" />
-                        <p className="text-lg  mb-8 font-Montserrat">All Hours is a cloud-based leave management system that enables you <br className='hidden lg:flex' /> to efficiently manage, approve, and track leave requests and absences from <br className='hidden lg:flex' /> any device.</p>
+                        <p className="text-lg  mb-8 font-Montserrat text-justify lg:text-left  ">All Hours is a cloud-based leave management system that enables you <br className='hidden lg:flex' /> to efficiently manage, approve, and track leave requests and absences from  any device.</p>
                         <ul className="list-disc list-inside text-lg mb-10 font-Montserrat">
                             <li> Stop losing paper forms </li>
                             <li> Reduces administration </li>
@@ -26,18 +26,18 @@ const Banner = () => {
             <div className="px-4 lg:px-0 lg:w-4/5 mx-auto flex gap-10 justify-center flex-col lg:flex-row relative lg:bottom-20  mt-10 lg:mt-0">
                 <div className="bg-[white] lg:shadow-2xl lg:w-[34rem] rounded-lg p-4 hover:scale-105 transition-all duration-500">
                     <h1 className="text-xl font-Roboto " >No more manual work or errors</h1>
-                    <div className="mt-4 space-y-2 ">
-                        <p className="flex items-center gap-2 text-lg font-Montserrat"> <IoCheckmarkDoneCircleOutline size={20} /> Stop losing paper forms</p>
-                        <p className="flex items-center gap-2 text-lg font-Montserrat"> <IoCheckmarkDoneCircleOutline size={20} /> Quickly, easily, and transparently manage absences</p>
-                        <p className="flex items-center gap-2 text-lg font-Montserrat"> <IoCheckmarkDoneCircleOutline size={20} /> Every request is tracked and includes a comment</p>
+                    <div className="mt-4 space-y-2  ">
+                        <p className="flex items-center gap-2 text-lg font-Montserrat "><div> <IoCheckmarkDoneCircleOutline size={20} /></div> Stop losing paper forms </p>
+                        <p className="flex items-center gap-2 text-lg font-Montserrat "> <div> <IoCheckmarkDoneCircleOutline size={20} /></div> Quickly, easily, and transparently manage absences</p>
+                        <p className="flex items-center gap-2 text-lg font-Montserrat "> <div> <IoCheckmarkDoneCircleOutline size={20} /></div> Every request is tracked and includes a comment</p>
                     </div>
                 </div>
                 <div className="bg-[white] lg:shadow-2xl lg:w-[34rem] rounded-lg p-4 hover:scale-105 transition-all duration-500">
                     <h1 className="text-xl font-Roboto " >Immediately improve your company’s productivity</h1>
                     <div className="mt-4 space-y-2">
-                        <p className="flex items-center gap-2 text-lg font-Montserrat"> <IoCheckmarkDoneCircleOutline size={20} /> Plan absences on a calendar</p>
-                        <p className="flex items-center gap-2 text-lg font-Montserrat"> <IoCheckmarkDoneCircleOutline size={20} /> Save time and focus on more strategic tasks</p>
-                        <p className="flex items-center gap-2 text-lg font-Montserrat"> <IoCheckmarkDoneCircleOutline size={20} />Assure compliance with accruals</p>
+                        <p className="flex items-center gap-2 text-lg font-Montserrat"> <div> <IoCheckmarkDoneCircleOutline size={20} /></div> Plan absences on a calendar</p>
+                        <p className="flex items-center gap-2 text-lg font-Montserrat"> <div> <IoCheckmarkDoneCircleOutline size={20} /></div> Save time and focus on more strategic tasks</p>
+                        <p className="flex items-center gap-2 text-lg font-Montserrat"> <div> <IoCheckmarkDoneCircleOutline size={20} /></div>Assure compliance with accruals</p>
                     </div>
                 </div>
             </div>

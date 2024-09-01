@@ -14,6 +14,7 @@ export default {
       'red-dark': '#e02a46',
       'green-light': '#c0edda',
       'green-dark': '#3bc88f',
+      'light-black': '#2b2f32'
     },
     fontFamily: {
       Montserrat: ['Montserrat'],
