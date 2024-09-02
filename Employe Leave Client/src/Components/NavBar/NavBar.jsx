@@ -17,7 +17,7 @@ const NavBar = () => {
                 <div className='flex items-center justify-between lg:w-4/5 mx-auto px-4 lg:px-0'>
                     <img className='w-48' src={logo} alt="Logo" />
                     <div className='hidden lg:flex gap-10 justify-center items-center'>
-                        <div className={navClass}>Home</div>
+                        <Link to={'/'} className={navClass}>Home</Link>
                         <div className={navClass}>About Us</div>
                         <div className={navClass}>Features</div>
                         <div className={navClass}>Contact</div>
@@ -41,7 +41,7 @@ const NavBar = () => {
             <div
                 className={`flex flex-wrap  md:justify-center items-center gap-10 px-4 py-4 mt-10 w-full absolute bg-blue-1 transition-all duration-[700ms] ease-in-out lg:hidden ${open ? 'top-10 opacity-100 z-40' : '-top-52 opacity-0 z-10'}`}
             >
-                <div className={navClass}>Home</div>
+                <Link to={'/'} className={navClass}>Home</Link>
                 <div className={navClass}>About Us</div>
                 <div className={navClass}>Features</div>
                 <div className={navClass}>Contact</div>
