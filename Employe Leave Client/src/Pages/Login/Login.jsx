@@ -5,8 +5,42 @@ import Button from '../../Components/Button/Button';
 import { FcGoogle } from "react-icons/fc";
 import NavBar from '../../Components/NavBar/NavBar';
 import Footer from '../../Components/Footer/Footer';
+import useAuth from '../../Hooks/useAuth';
+import toast from 'react-hot-toast';
 const Login = () => {
+
+    const { GoogleAuth, user } = useAuth()
+    console.log(user)
+    const handel = () => {
+        console.log('han')
+    }
+    const GoogleLogin = () => {
+        console.log('asdasdasdasd')
+        GoogleAuth()
+            .then(res => {
+                const userInfo = {
+                    email: res?.user?.email,
+                    name: res?.user?.displayName,
+                    photo: res?.user?.photoURL,
+                    role: ""
+                }
+                console.log('User Info:', userInfo);
+
+                return API.post('/users', userInfo);
+            })
+            .then(res => {
+                console.log('API Response:', res.data);
+                toast.success("Log in successful");
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(err => {
+                console.error('Login Error:', err);
+                toast.error(`Error: ${err.message}`);
+            });
+    }
+
     return (
+
         <>
             <NavBar />
             <div
@@ -57,9 +91,10 @@ const Login = () => {
                             <Button title={"Login"} fullWidth={true} />
                             <p>or</p>
                             <button
+                                onClick={GoogleLogin}
                                 type='button'
                                 className={`text-lg font-medium px-5 py-1 border border-blue-dark font-Roboto flex items-center justify-center gap-2 w-1/2  hover:scale-110 transition-all duration-[0.3s] ease-in-out`}>
-                                <div><FcGoogle /></div> Google
+                                <div  ><FcGoogle /></div> Google
                             </button>
 
                         </div>

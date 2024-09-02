@@ -3,6 +3,8 @@ import logo from '../../assets/logo/logo.png'
 import './Nav.css'
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+import Dropdown from '../Dropdown/Dropdown';
 const NavBar = () => {
     const navClass = 'font-Roboto text-lg font-medium hover-effect'
     const [open, setOpen] = useState(false)
@@ -10,7 +12,8 @@ const NavBar = () => {
     const handleCheckboxChange = () => {
         setOpen(!open);
     };
-
+    const { user } = useAuth()
+    console.log(user)
     return (
         <>
             <div className='bg-blue-1 py-4 relative z-50 '>
@@ -21,9 +24,15 @@ const NavBar = () => {
                         <div className={navClass}>About Us</div>
                         <div className={navClass}>Features</div>
                         <div className={navClass}>Contact</div>
-                        <Link to={'/login'}>
-                            <Button title={"Log In"} />
-                        </Link>
+                        {
+                            user ?
+                                <Dropdown />
+                                :
+                                <Link to={'/login'}>
+                                    <Button title={"Log In"} />
+                                </Link>
+                        }
+
                     </div>
                     {/* Hamburger Menu */}
                     <div className='flex lg:hidden'>

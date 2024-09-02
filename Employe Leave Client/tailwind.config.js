@@ -21,5 +21,5 @@ export default {
       Roboto: ['Roboto'],
     },
   },
-  plugins: [],
+  plugins: [require('daisyui'),],
 }
