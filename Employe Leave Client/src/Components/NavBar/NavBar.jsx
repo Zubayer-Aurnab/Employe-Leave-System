@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from '../../assets/logo/logo.png'
 import './Nav.css'
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 const NavBar = () => {
     const navClass = 'font-Roboto text-lg font-medium hover-effect'
     const [open, setOpen] = useState(false)
@@ -20,7 +21,9 @@ const NavBar = () => {
                         <div className={navClass}>About Us</div>
                         <div className={navClass}>Features</div>
                         <div className={navClass}>Contact</div>
-                        <Button title={"Log In"} />
+                        <Link to={'/login'}>
+                            <Button title={"Log In"} />
+                        </Link>
                     </div>
                     {/* Hamburger Menu */}
                     <div className='flex lg:hidden'>
@@ -42,7 +45,9 @@ const NavBar = () => {
                 <div className={navClass}>About Us</div>
                 <div className={navClass}>Features</div>
                 <div className={navClass}>Contact</div>
-                <button className='text-lg font-medium px-3 py-1 nav-btn'>Log In</button>
+                <Link to={'/login'}>
+                    <Button title={"Log In"} />
+                </Link>
             </div>
         </>
     );
