@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import background from '../../assets/images/bgP.png'
 import logo from '../../assets/logo/logo.png'
 import Button from '../../Components/Button/Button';
@@ -7,9 +7,12 @@ import NavBar from '../../Components/NavBar/NavBar';
 import Footer from '../../Components/Footer/Footer';
 import useAuth from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import useAPI from '../../Hooks/useAPI';
 const Login = () => {
 
     const { GoogleAuth, LogInUser } = useAuth()
+    const navigate = useNavigate()
+    const API = useAPI()
 
     const handelLogin = (e) => {
         e.preventDefault()
@@ -33,13 +36,14 @@ const Login = () => {
         LogInUser(email, password)
             .then(res => {
                 toast.success("Log In successful")
+                navigate('/')
                 from.reset()
             }).catch(err => {
                 toast.error(`error: ${err.message}`)
             })
     }
     const GoogleLogin = () => {
-        console.log('asdasdasdasd')
+        // console.log('asdasdasdasd')
         GoogleAuth()
             .then(res => {
                 const userInfo = {
@@ -53,7 +57,8 @@ const Login = () => {
                 API.post('/users', userInfo)
                     .then(res => {
                         console.log(res.data)
-                        toast.success("Registration in successful")
+                        toast.success("Log in successful")
+                        navigate('/')
                         from.reset()
                     })
             })

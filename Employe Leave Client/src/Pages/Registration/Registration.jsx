@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import background from '../../assets/images/bgP.png'
 import logo from '../../assets/logo/logo.png'
 import Button from '../../Components/Button/Button';
@@ -15,6 +15,7 @@ const Registration = () => {
     const [loading, setLoading] = useState(false)
     const { createUser, UpdateUser } = useAuth()
     const API = useAPI()
+    const navigate = useNavigate()
 
     const handelSubmite = async (e) => {
         e.preventDefault()
@@ -71,15 +72,17 @@ const Registration = () => {
                         .then(res => {
                             console.log(res.data)
                             toast.success("Registration in successful")
+                            navigate('/')
                             from.reset()
                             setLoading(false)
-                            // navigate(location?.state ? location.state : '/')
+                           
                         })
                 })
         })
             .catch(err => {
+                setLoading(false)
                 toast.error(`error: ${err.message}`)
-                setLoading(true)
+
             })
 
 

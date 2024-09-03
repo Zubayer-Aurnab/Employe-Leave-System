@@ -1,0 +1,54 @@
+#text {
+    background-color: #FFF;
+    color: #222;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    resize: none;
+    line-height: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 45px;
+    padding-bottom: 34px;
+    background-image: url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+    background-repeat: repeat-y, repeat;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    border-color: transparent;
+    outline: none;
+}
+
+@media (max-width: 640px) {
+    #text {
+        font-size: 16px;
+        line-height: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    #text {
+        font-size: 18px;
+        line-height: 35px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 30px;
+        padding-bottom: 25px;
+    }
+}
+
+
+@media (min-width: 1025px) {
+    #text {
+        font-size: 20px;
+        line-height: 40px;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 45px;
+        padding-bottom: 34px;
+    }
+}
