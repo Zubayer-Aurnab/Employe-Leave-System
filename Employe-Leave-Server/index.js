@@ -49,7 +49,7 @@ async function run() {
         //find a user data by email 
         app.get('/user-data/:email', async (req, res) => {
             const email = await req.params.email;
-            console.log(email);
+            // console.log(email);
             const query = { email: new RegExp(`^${email}$`, "i") };
 
             const result = await UserCollection.findOne(query);
