@@ -8,12 +8,12 @@ import Dropdown from '../Dropdown/Dropdown';
 const NavBar = () => {
     const navClass = 'font-Roboto text-lg font-medium hover-effect'
     const [open, setOpen] = useState(false)
-    console.log(open)
+    // console.log(open)
     const handleCheckboxChange = () => {
         setOpen(!open);
     };
     const { user } = useAuth()
-    console.log(user)
+    // console.log(user)
     return (
         <>
             <div className='bg-blue-1 py-4 relative z-50 '>

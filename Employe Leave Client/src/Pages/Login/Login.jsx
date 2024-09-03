@@ -9,10 +9,34 @@ import useAuth from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
 const Login = () => {
 
-    const { GoogleAuth, user } = useAuth()
-    console.log(user)
-    const handel = () => {
-        console.log('han')
+    const { GoogleAuth, LogInUser } = useAuth()
+
+    const handelLogin = (e) => {
+        e.preventDefault()
+        const from = e.target
+        const email = from.email.value
+        const password = from.password.value
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+
+        if (!emailRegex.test(email)) {
+            toast.error("Invalid email address.");
+            return;
+        }
+
+        if (!passwordRegex.test(password)) {
+            toast.error("Invalid password. Password should be at least 6 characters long, and contain at least one letter and one number.");
+            return;
+        }
+
+        LogInUser(email, password)
+            .then(res => {
+                toast.success("Log In successful")
+                from.reset()
+            }).catch(err => {
+                toast.error(`error: ${err.message}`)
+            })
     }
     const GoogleLogin = () => {
         console.log('asdasdasdasd')
@@ -26,13 +50,13 @@ const Login = () => {
                 }
                 console.log('User Info:', userInfo);
 
-                return API.post('/users', userInfo);
+                // return API.post('/users', userInfo);
             })
-            .then(res => {
-                console.log('API Response:', res.data);
-                toast.success("Log in successful");
-                navigate(location?.state ? location.state : '/');
-            })
+            // .then(res => {
+            //     console.log('API Response:', res.data);
+            //     toast.success("Log in successful");
+            //     navigate(location?.state ? location.state : '/');
+            // })
             .catch(err => {
                 console.error('Login Error:', err);
                 toast.error(`Error: ${err.message}`);
@@ -50,14 +74,14 @@ const Login = () => {
                 className="h-screen flex items-center " >
 
                 <div className="lg:w-1/3 mx-auto bg-[white] shadow-lg p-5">
-                    <form>
+                    <form onSubmit={handelLogin}>
                         <img className="w-44" src={logo} alt="" />
                         <h1 className="text-2xl lg:text-4xl font-Montserrat font-bold mt-8 text-center">Log In</h1>
                         <div className='mt-5'>
                             {/* email */}
                             <div className="w- h-12 relative flex rounded-xl mt-4">
                                 <input
-                                    required
+
                                     className="peer w-full bg-transparent outline-none px-4 text-base rounded-xl bg-white border border-blue-dark focus:shadow-md"
                                     id="address"
                                     type="text"
@@ -73,7 +97,7 @@ const Login = () => {
                             {/* Password */}
                             <div className="w- h-12 relative flex rounded-xl mt-4">
                                 <input
-                                    required
+
                                     className="peer w-full bg-transparent outline-none px-4 text-base rounded-xl bg-white border border-blue-dark focus:shadow-md"
                                     id="address"
                                     type="password"
