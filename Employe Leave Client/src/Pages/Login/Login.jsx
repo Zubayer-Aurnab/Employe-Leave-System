@@ -50,13 +50,13 @@ const Login = () => {
                 }
                 console.log('User Info:', userInfo);
 
-                // return API.post('/users', userInfo);
+                API.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data)
+                        toast.success("Registration in successful")
+                        from.reset()
+                    })
             })
-            // .then(res => {
-            //     console.log('API Response:', res.data);
-            //     toast.success("Log in successful");
-            //     navigate(location?.state ? location.state : '/');
-            // })
             .catch(err => {
                 console.error('Login Error:', err);
                 toast.error(`Error: ${err.message}`);

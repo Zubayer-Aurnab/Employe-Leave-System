@@ -8,11 +8,13 @@ import toast from 'react-hot-toast';
 import axios, { Axios } from 'axios';
 import { useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
+import useAPI from '../../Hooks/useAPI';
 
 const Registration = () => {
 
     const [loading, setLoading] = useState(false)
     const { createUser, UpdateUser } = useAuth()
+    const API = useAPI()
 
     const handelSubmite = async (e) => {
         e.preventDefault()
@@ -65,20 +67,19 @@ const Registration = () => {
                 .then(res => {
                     const user = { email, name, imageURL, role: "" }
                     console.log(user)
-                    // API.post('/users', user)
-                    //     .then(res => {
-                    //         console.log(res.data)
-                    //         toast.success("sign in successful")
-                    //         navigate(location?.state ? location.state : '/')
-                    //     })
-
-                    toast.success("registared successfully")
-                    from.reset()
-
+                    API.post('/users', user)
+                        .then(res => {
+                            console.log(res.data)
+                            toast.success("Registration in successful")
+                            from.reset()
+                            setLoading(false)
+                            // navigate(location?.state ? location.state : '/')
+                        })
                 })
         })
             .catch(err => {
                 toast.error(`error: ${err.message}`)
+                setLoading(true)
             })
 
 
@@ -89,7 +90,7 @@ const Registration = () => {
         }
 
         console.log(data)
-        setLoading(false)
+
     }
     return (
         <>
