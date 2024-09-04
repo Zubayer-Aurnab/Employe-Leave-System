@@ -2,6 +2,8 @@
 
 # Front End
 
+
+
 ## I am using React for the front end development. The styling is managed with Tailwind CSS to enhance the UI/UX . For authentication, I am utilizing Firebase to manage user logins securely and efficiently..
 
 [![My Skills](https://skillicons.dev/icons?i=react,js,html,tailwind,css,firebase)](https://skillicons.dev)
@@ -20,9 +22,11 @@
 
 ##
 
-# Front-End Live Link : https://employe--leave-system.web.app/
+#  To access the dashboard, please log in first.
 
-# Back-End Live Link : https://employe-leave-server.vercel.app/
+## Front-End Live Link : https://employe--leave-system.web.app/
+
+## Back-End Live Link : https://employe-leave-server.vercel.app/
 
 ##
 
