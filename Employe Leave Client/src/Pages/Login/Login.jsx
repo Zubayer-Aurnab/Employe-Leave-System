@@ -49,7 +49,7 @@ const Login = () => {
                 const userInfo = {
                     email: res?.user?.email,
                     name: res?.user?.displayName,
-                    photo: res?.user?.photoURL,
+                    imageURL: res?.user?.photoURL,
                     role: ""
                 }
                 console.log('User Info:', userInfo);

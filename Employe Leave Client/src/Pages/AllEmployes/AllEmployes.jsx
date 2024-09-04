@@ -7,6 +7,8 @@ import Loader from '../../Components/Loader/Loader'
 import useRole from '../../Hooks/useRole';
 import useAuth from '../../Hooks/useAuth';
 
+import background from '../../assets/images/bgP.png'
+
 const AllEmployes = () => {
     const API = useAPI()
     const [loading, setLoading] = useState(false)
@@ -90,7 +92,11 @@ const AllEmployes = () => {
 
     // console.log(data)
     return (
-        <div>
+        <div  style={{
+            backgroundImage: `url(${background})`
+        }} 
+        className='h-screen overflow-y-hidden'
+        >
             <h1 className="my-5 text-4xl font-semibold text-center font-Roboto ">Manage Employes</h1>
             {
                 loading ? <Loader />
@@ -122,7 +128,7 @@ const AllEmployes = () => {
                                                 <div className="flex items-center gap-3">
                                                     <div className="avatar">
                                                         <div className="mask mask-squircle w-12 h-12">
-                                                            <img src={userD.imageURL} alt="Avatar Tailwind CSS Component" />
+                                                            <img src={userD?.imageURL} alt="Avatar Tailwind CSS Component" />
                                                         </div>
                                                     </div>
                                                     <div>
@@ -155,7 +161,7 @@ const AllEmployes = () => {
 
                                             <th>
                                                 {
-                                                    user?.email == userD.email ? ""
+                                                    user?.email == userD.email ? "asdas"
                                                         :
                                                         <button
                                                             onClick={() => handelDelete(userD?._id)}

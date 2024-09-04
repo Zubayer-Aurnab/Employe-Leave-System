@@ -6,7 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 const Dropdown = () => {
     const { user, logOutUser } = useAuth()
     return (
-        <div className="dropdown dropdown-hover dropdown-bottom dropdown-end z-50">
+        <div className="dropdown dropdown-hover  dropdown-bottom md:dropdown-end z-50">
 
             <img
                 tabIndex={0}

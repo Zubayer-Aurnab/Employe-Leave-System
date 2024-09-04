@@ -22,6 +22,7 @@ const client = new MongoClient(uri, {
 });
 
 const UserCollection = client.db("Employee-managment").collection("Users");
+const LeaveRequestCollection = client.db("Employee-managment").collection("Leave-Request-Collection");
 
 async function run() {
     try {
@@ -76,19 +77,44 @@ async function run() {
             const result = await UserCollection.deleteOne(query);
             res.send(result);
         });
+        //post Employee leave req
+        app.post("/leave-req", async (req, res) => {
+            const data = req.body
+            const result = await LeaveRequestCollection.insertOne(data);
+            res.send(result);
 
-
-
-
-
-
-
-
-
-
-
-
-
+        })
+        //get personal leave request by email 
+        app.get('/my-leave-data/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = {
+                userEmail: new RegExp(`^${email}$`, "i")
+            };
+            try {
+                const result = await LeaveRequestCollection.find(query).toArray();
+                res.send(result);
+            } catch (error) {
+                res.status(500).send({ message: 'Error retrieving leave data', error });
+            }
+        });
+        //get all leave request
+        app.get('/all-req', async (req, res) => {
+            const result = await LeaveRequestCollection.find().toArray();
+            res.send(result);
+        })
+        //update status of request
+        app.patch("/status-update/:id", async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: new ObjectId(id) };
+            const { Role } = req.body;
+            const updatedDoc = {
+                $set: {
+                    status: Role,
+                },
+            };
+            const result = await LeaveRequestCollection.updateOne(filter, updatedDoc);
+            res.send(result);
+        });
 
 
 

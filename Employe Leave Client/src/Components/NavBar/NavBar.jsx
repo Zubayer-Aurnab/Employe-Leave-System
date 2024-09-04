@@ -54,9 +54,14 @@ const NavBar = () => {
                 <div className={navClass}>About Us</div>
                 <div className={navClass}>Features</div>
                 <div className={navClass}>Contact</div>
-                <Link to={'/login'}>
-                    <Button title={"Log In"} />
-                </Link>
+                {
+                    user ?
+                        <Dropdown />
+                        :
+                        <Link to={'/login'}>
+                            <Button title={"Log In"} />
+                        </Link>
+                }
             </div>
         </>
     );

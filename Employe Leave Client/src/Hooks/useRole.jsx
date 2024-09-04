@@ -7,13 +7,16 @@ const useRole = () => {
     const [role, setRole] = useState("")
     const API = useAPI()
     const { user } = useAuth()
+    const [roleLoader, SetRoleloader] = useState(false)
     // console.log(user?.email)
     const fetch = async () => {
         if (user?.email) {
             try {
+                SetRoleloader(true)
                 const res = await API.get(`/user-data/${user?.email}`);
-                console.log(res);
+                // console.log(res);
                 setRole(res.data.role);
+                SetRoleloader(false)
             } catch (error) {
                 console.error("Error fetching user role:", error);
 
@@ -25,7 +28,7 @@ const useRole = () => {
         fetch()
     }, [user])
     return (
-        { role }
+        { role, roleLoader }
     );
 };
 
