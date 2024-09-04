@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const axiosURL = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://employe-leave-server.vercel.app"
 })
 
 const useAPI = () => {

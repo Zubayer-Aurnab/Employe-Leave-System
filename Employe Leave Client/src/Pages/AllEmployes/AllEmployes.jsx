@@ -161,7 +161,7 @@ const AllEmployes = () => {
 
                                             <th>
                                                 {
-                                                    user?.email == userD.email ? "asdas"
+                                                    user?.email == userD.email ? ""
                                                         :
                                                         <button
                                                             onClick={() => handelDelete(userD?._id)}

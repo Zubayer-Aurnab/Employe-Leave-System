@@ -62,7 +62,7 @@ const SendRequest = () => {
                 <h1 className="my-5 text-4xl font-semibold text-center font-Roboto ">Send Leave Request</h1>
                 <div className='p-4'>
                     <div className='flex items-center gap-2'>
-                        <img className='w-16 rounded-full' src={user?.photoURL} alt="" />
+                        <img className='w-16 h-16 rounded-full' src={user?.photoURL} alt="" />
                         <h1 className='font-Montserrat font-semibold'>{user?.displayName}</h1>
                     </div>
                     <div className='mt-5'>
@@ -90,7 +90,8 @@ const SendRequest = () => {
                                 ></textarea>
                             </div>
                             <div className='mt-5 flex justify-center'>
-                                <Button title={"Send"} fullWidth={true} />
+                                {/* <Button title={"Send"} fullWidth={true} /> */}
+                                <button className={`text-lg font-medium px-5  nav-btn font-Roboto w-1/2 py-1 `}>SEND</button>
                             </div>
                         </form>
                     </div>
